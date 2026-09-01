@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { api } from '../services/api';
+import { api, isDemoMode } from '../services/api';
 
 const demoSkills = [
   { name: 'Data Structures', score: 92, level: 'Advanced' },
@@ -26,6 +26,18 @@ export default function Dashboard() {
   async function load() {
     try {
       setLoading(true);
+
+      if (isDemoMode()) {
+        setData({
+          profile: { user: { full_name: 'Aarav Sharma' }, target_career_id: 3 },
+          skills: demoSkills,
+          roadmap: { items: [{ skill_name: 'Advanced SQL', current_level: 'Intermediate', target_level: 'Advanced', priority: 'High' }, { skill_name: 'System Design', current_level: 'Beginner', target_level: 'Intermediate', priority: 'Medium' }] },
+          opportunities: { jobs: opportunities },
+          assessments: [{ assessment_id: 'SQL Sprint', score: 88 }, { assessment_id: 'DSA Diagnostic', score: 92 }],
+        });
+        return;
+      }
+
       const resp = await api.get('/students/me');
       const skillsResp = await api.get('/students/me/skills');
       const roadmapResp = await api.get('/students/me/roadmap');

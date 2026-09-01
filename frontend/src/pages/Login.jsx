@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { login, api } from '../services/api';
+import { login, api, isDemoMode } from '../services/api';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -14,10 +14,17 @@ export default function Login() {
       const token = resp.data.access_token;
       localStorage.setItem('kshetra_token', token);
 
-      try {
-        const me = await api.get('/students/me');
-        localStorage.setItem('kshetra_user_id', me.data.user_id);
-      } catch (e) {}
+      if (isDemoMode()) {
+        const stored = JSON.parse(localStorage.getItem('kshetra_demo_user') || 'null');
+        if (stored?.id) {
+          localStorage.setItem('kshetra_user_id', String(stored.id));
+        }
+      } else {
+        try {
+          const me = await api.get('/students/me');
+          localStorage.setItem('kshetra_user_id', me.data.user_id);
+        } catch (e) {}
+      }
 
       setMessage('Login successful');
       setTimeout(() => {
