@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.dev.env
+
+# Node
+node_modules/
+frontend/build/
+frontend/.cache/
+
+# OS / local files
+.DS_Store
+Thumbs.db
+*.log
+
+# Database / local runtime
+*.db
+*.sqlite3
+
+dev.db
