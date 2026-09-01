@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/kshetra-skill-portal/static/css/main.828706fe.css",
-    "main.js": "/kshetra-skill-portal/static/js/main.cb10c08b.js",
+    "main.js": "/kshetra-skill-portal/static/js/main.4e61dd17.js",
     "index.html": "/kshetra-skill-portal/index.html",
     "main.828706fe.css.map": "/kshetra-skill-portal/static/css/main.828706fe.css.map",
-    "main.cb10c08b.js.map": "/kshetra-skill-portal/static/js/main.cb10c08b.js.map"
+    "main.4e61dd17.js.map": "/kshetra-skill-portal/static/js/main.4e61dd17.js.map"
   },
   "entrypoints": [
     "static/css/main.828706fe.css",
-    "static/js/main.cb10c08b.js"
+    "static/js/main.4e61dd17.js"
   ]
 }
