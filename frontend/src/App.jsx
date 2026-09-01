@@ -14,23 +14,30 @@ import SkillGaps from './pages/SkillGaps';
 import RecruiterDashboard from './pages/RecruiterDashboard';
 import Home from './pages/Home';
 
-export default function App(){
+export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="p-4 bg-white shadow-sm">
-        <Link to="/" className="font-bold mr-4">Kshetra</Link>
-        <Link to="/register" className="mr-2">Register</Link>
-        <Link to="/login" className="mr-2">Login</Link>
-        <Link to="/profile" className="mr-2">Profile</Link>
-        <Link to="/dashboard" className="mr-2">Dashboard</Link>
-        <Link to="/skills" className="mr-2">Skills</Link>
-        <Link to="/careers" className="mr-2">Careers</Link>
-        <Link to="/assessments" className="mr-2">Assessments</Link>
-        <Link to="/practical" className="mr-2">Practical</Link>
-        <Link to="/passport" className="mr-2">Passport</Link>
-        <Link to="/recruiter" className="mr-2">Recruiter</Link>
+    <div className="min-h-screen">
+      <nav className="top-nav">
+        <div className="page-shell nav-shell">
+          <Link to="/" className="brand-mark">
+            <span className="brand-icon">K</span>
+            <span>Kshetra</span>
+          </Link>
+          <div className="nav-links">
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/skills">Skills</Link>
+            <Link to="/careers">Careers</Link>
+            <Link to="/passport">Passport</Link>
+            <Link to="/recruiter">Recruiters</Link>
+          </div>
+          <div className="nav-actions">
+            <Link to="/login" className="nav-link-button ghost">Login</Link>
+            <Link to="/register" className="nav-link-button solid">Register</Link>
+          </div>
+        </div>
       </nav>
-      <main className="p-6">
+
+      <main>
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
@@ -48,5 +55,5 @@ export default function App(){
         </Routes>
       </main>
     </div>
-  )
+  );
 }
